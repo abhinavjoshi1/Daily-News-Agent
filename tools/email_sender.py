@@ -10,15 +10,15 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 
-SENDER_EMAIL = 'me@my_email_domain.net'
-RECIPIENT_EMAIL = 'recipient@her_email_domain.com'
-SUBJECT = "Subject"
+SENDER_EMAIL = 'abhinavaccess5@gmail.com'
+RECIPIENT_EMAIL = 'tiwari2000sakshi@gmail.com'
+SUBJECT = "AI News Test Mail"
 
-PASSWORD = "YOUR_APP_PASSWORD"  
+PASSWORD = ""  
 
 
 
-def send_mail(body):
+def send_email(body):
     """
         Sends an email with the given body content.
 
