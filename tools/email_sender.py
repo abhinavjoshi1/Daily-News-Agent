@@ -4,17 +4,21 @@ Description :
 """
 
 # ------------------------- Imports -------------------------
+import os
 from smtplib import SMTP
+from dotenv import load_dotenv
 from datetime import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+load_dotenv()
 
-SENDER_EMAIL = 'abhinavaccess5@gmail.com'
-RECIPIENT_EMAIL = 'tiwari2000sakshi@gmail.com'
+SENDER_EMAIL = os.getenv("SENDER_EMAIL")
+RECIPIENT_EMAIL = os.getenv("RECIPIENT_EMAIL")
 SUBJECT = "AI News Test Mail"
 
-PASSWORD = ""  
+
+PASSWORD = os.getenv("EMAIL_PASSWORD")
 
 
 
