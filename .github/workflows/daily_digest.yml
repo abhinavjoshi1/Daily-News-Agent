@@ -2,15 +2,15 @@ name: Daily AI Digest
 
 on:
   schedule:
-    - cron: '30 21 * * *'  # 3:00 AM IST = 9:30 PM UTC
-  workflow_dispatch:         # allows manual trigger from GitHub UI
+    - cron: '30 21 * * *'
+  workflow_dispatch:
 
 jobs:
   generate-digest:
     runs-on: ubuntu-latest
     
     permissions:
-      contents: write        # needed to push digest back to repo
+      contents: write
 
     steps:
       - name: Checkout repo
@@ -25,13 +25,13 @@ jobs:
         run: pip install uv
 
       - name: Install dependencies
-        working-directory: news_agent
-        run: uv sync
+        run: |
+          cd $GITHUB_WORKSPACE/news_agent
+          uv sync
 
       - name: Create .env file
-        working-directory: news_agent
         run: |
-          cat > .env << EOF
+          cat > $GITHUB_WORKSPACE/news_agent/.env << EOF
           NVIDIA_NIM_API_KEY=${{ secrets.NVIDIA_NIM_API_KEY }}
           OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
           OPENAI_API_BASE=${{ secrets.OPENAI_API_BASE }}
@@ -40,16 +40,18 @@ jobs:
           EOF
 
       - name: Run CrewAI agent
-        working-directory: news_agent
-        run: uv run run_crew
+        run: |
+          cd $GITHUB_WORKSPACE/news_agent
+          uv run run_crew
 
       - name: Move digest to root digests folder
         run: |
-          mkdir -p digests
-          mv news_agent/digests/*.md digests/ 2>/dev/null || true
+          mkdir -p $GITHUB_WORKSPACE/digests
+          mv $GITHUB_WORKSPACE/news_agent/digests/*.md $GITHUB_WORKSPACE/digests/ 2>/dev/null || true
 
       - name: Commit and push digest
         run: |
+          cd $GITHUB_WORKSPACE
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add digests/
