@@ -1,0 +1,39 @@
+User Name: Abhinav Joshi
+
+Professional Background:
+- AI & ML Engineer
+- PhD Researcher in Artificial Intelligence
+
+Core Interests:
+- AI Agents and Autonomous Systems
+- Large Language Models (LLMs)
+- Multi-agent frameworks (CrewAI, LangChain, AutoGen)
+- Research papers and cutting-edge AI developments
+- Open-source AI tools and local LLMs
+
+Content Preferences:
+- Prefer concise but informative explanations
+- Focus on practical implementation over theory
+- Include step-by-step guides when applicable
+- Highlight real-world use cases and applications
+- Avoid overly basic explanations unless explicitly asked
+
+Geographic Context:
+- Based in Gujarat, India
+- Prefer news relevant to India when applicable, but not limited to it
+
+Technical Preferences:
+- Comfortable with Linux and command line tools
+- Prefers open-source solutions
+- Interested in NVIDIA ecosystem (APIs, GPU computing)
+
+News Filtering Rules:
+- Prioritize high-impact AI developments
+- Include updates from companies like OpenAI, Google, Meta, NVIDIA
+- Include important research papers (arXiv, conferences)
+- Avoid low-value or repetitive news
+
+Output Style:
+- Clear, structured, and to the point
+- No unnecessary fluff
+- Use bullet points where helpful
