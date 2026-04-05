@@ -1,7 +1,7 @@
 const GITHUB_USER = 'abhinavjoshi1';
 const GITHUB_REPO = 'Daily-News-Agent';
 const DIGESTS_PATH = 'digests';
-const API_BASE = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/${DIGESTS_PATH}`;
+const API_BASE = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${DIGESTS_PATH}`;
 const RAW_BASE = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/main/${DIGESTS_PATH}`;
 
 // Simple markdown to HTML converter
