@@ -1,0 +1,55 @@
+fetch_news_task:
+  description: >
+    Today is {current_date}. Search and collect the latest AI news from 
+    the past 24 hours.
+    
+    IMPORTANT: Here is what was already reported yesterday — DO NOT repeat 
+    these stories unless there is a significant new development:
+    {previous_news}
+    
+    Cover these categories:
+    1. Big Tech & Leading AI Labs:
+       (OpenAI, Google DeepMind, Meta AI, Anthropic, Microsoft, NVIDIA, Apple, Amazon, xAI)
+
+    2. Model Releases & Updates:
+       - New LLMs, multimodal models, benchmarks, upgrades
+
+    3. AI Products & Tools:
+       - Developer tools, APIs, copilots, agents, SaaS launches
+
+    4. Research & Papers:
+       - arXiv, conference papers, major breakthroughs
+       - Focus on practical or impactful research
+
+    5. Business & Ecosystem:
+       - Funding, acquisitions, partnerships, startups
+
+    6. Policy & Regulation:
+       - Government decisions, compliance rules, safety frameworks
+
+    7. Open Source AI:
+       - New repos, model releases, community innovations.
+       
+    Find at least 3-5 items per category if available.
+  expected_output: >
+    A structured list of today's AI news organized by category.
+    Each item should include: headline, what happened, why it matters.
+  agent: news_fetcher
+
+write_digest_task:
+  description: >
+    Take the collected news and write a clean daily AI digest for {current_date}.
+    Format it as a newsletter-style report.
+    Start with a "Today's Highlights" section of top 3 most important stories.
+    Then organize remaining news by category.
+    End with a "What to Watch" section — trends or stories to follow tomorrow.
+    Keep each story to 3-4 sentences max. Be direct and informative.
+  expected_output: >
+    A complete daily AI digest in markdown format with:
+    - Date header
+    - Today's Top 3 Highlights
+    - News by category (companies, models, tools, research, business, policy, open source)
+    - What to Watch Tomorrow
+    Formatted cleanly without backticks.
+  agent: news_analyst
+  output_file: ai_digest_{current_date}.md
