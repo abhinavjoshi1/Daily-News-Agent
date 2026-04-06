@@ -51,14 +51,15 @@ class NewsAgent():
 
     @task
     def write_digest_task(self) -> Task:
-        from datetime import date
-        today = date.today()
+        from datetime import datetime
+        import pytz
+        ist = pytz.timezone('Asia/Kolkata')
+        today = datetime.now(ist).date()
         filename = f"digests/Digest_{today.strftime('%d_%m_%y')}.md"
         return Task(
             config=self.tasks_config['write_digest_task'],
             output_file=filename
         )
-
     # @task
     # def reporting_task(self) -> Task:
     #     return Task(
