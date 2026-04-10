@@ -10,7 +10,10 @@ from datetime import date, timedelta
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
 
 
-search_tool = SerperDevTool()
+search_tool = SerperDevTool(
+    tbs="qdr:d",      # Results from past 24 hours only
+    # tbs="qdr:h6"   # Or past 6 hours for ultra-fresh news
+)
 
 @CrewBase
 class NewsAgent():
